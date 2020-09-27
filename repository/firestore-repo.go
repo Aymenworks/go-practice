@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"../entity"
 	"cloud.google.com/go/firestore"
+	"github.com/Aymenworks/go-practice/entity"
 )
 
 type repo struct{}

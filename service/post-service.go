@@ -4,8 +4,8 @@ import (
 	"errors"
 	"math/rand"
 
-	"../entity"
-	"../repository"
+	"github.com/Aymenworks/go-practice/entity"
+	"github.com/Aymenworks/go-practice/repository"
 )
 
 type PostService interface {

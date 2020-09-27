@@ -1,10 +1,12 @@
 package main
 
 import (
-	"./controller"
-	router "./http"
-	"./repository"
-	"./service"
+	"os"
+
+	"github.com/Aymenworks/go-practice/controller"
+	router "github.com/Aymenworks/go-practice/http"
+	"github.com/Aymenworks/go-practice/repository"
+	"github.com/Aymenworks/go-practice/service"
 )
 
 var (
@@ -15,9 +17,7 @@ var (
 )
 
 func main() {
-	const port string = ":8000"
-
 	httpRouter.GET("/posts", postController.GetPosts)
 	httpRouter.POST("/posts", postController.AddPost)
-	httpRouter.SERVE(port)
+	httpRouter.SERVE(os.Getenv("GO_PRACTICE_PORT"))
 }

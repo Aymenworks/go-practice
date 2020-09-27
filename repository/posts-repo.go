@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"../entity"
+	"github.com/Aymenworks/go-practice/entity"
 )
 
 type PostRepository interface {

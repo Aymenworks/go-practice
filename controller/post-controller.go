@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"../entity"
-	"../errors"
-	"../service"
+	"github.com/Aymenworks/go-practice/entity"
+	"github.com/Aymenworks/go-practice/errors"
+	"github.com/Aymenworks/go-practice/service"
 )
 
 var (
