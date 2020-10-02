@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/Aymenworks/go-practice/entity"
+	"github.com/Aymenworks/go-practiceclear
+	/entity"
 	"github.com/Aymenworks/go-practice/errors"
 	"github.com/Aymenworks/go-practice/service"
 )

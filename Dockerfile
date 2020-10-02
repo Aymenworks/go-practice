@@ -20,5 +20,7 @@ COPY . .
 ENV GO_PRACTICE_PORT 8000
 
 RUN go build
-
+ 
 CMD [ "./go-practice" ]
+
+# docker run -o 8080:8000 golang-api
