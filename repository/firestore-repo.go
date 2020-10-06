@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"cloud.google.com/go/firestore"
@@ -77,5 +78,35 @@ func (*repo) GetAll() ([]entity.Post, error) {
 	}
 
 	return posts, nil
+}
 
+func (*repo) FindByID(id string) (*entity.Post, error) {
+	ctx := context.Background()
+	client, err := firestore.NewClient(ctx, projectID)
+	if err != nil {
+		log.Fatalf("Failed to create firestore client object %v", err)
+		return nil, err
+	}
+
+	fmt.Println("query", id)
+
+	defer client.Close()
+
+	doc, err := client.Doc(collectionName + "/" + id).Get(ctx)
+	if err != nil {
+		fmt.Println("error", err)
+		// TODO: Handle error.
+	} else {
+		fmt.Println("yayyyy", doc.Data())
+	}
+
+	post := entity.Post{
+		ID:    doc.Data()["ID"].(int64),
+		Title: doc.Data()["Title"].(string),
+		Text:  doc.Data()["Text"].(string),
+	}
+
+	fmt.Println("post", post)
+
+	return &post, nil
 }
